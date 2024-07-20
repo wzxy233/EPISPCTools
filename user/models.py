@@ -14,7 +14,7 @@ class User(models.Model):
 
 class Eval_class(models.Model):
     eval_class_id = models.PositiveIntegerField(verbose_name='序号', unique=True)
-    eval_class_name = models.CharField(max_length=20, primary_key=True, verbose_name='评估类名')
+    eval_class_name = models.CharField(max_length=20, primary_key=True, verbose_name='评估类')
 
     class Meta:
         verbose_name = "评估类管理"
@@ -25,7 +25,7 @@ class Eval_class(models.Model):
 
 class Eval_item(models.Model):
     eval_item_id = models.PositiveIntegerField(verbose_name='序号', unique=True)
-    eval_item_name = models.CharField(max_length=20, primary_key=True, verbose_name='评估项名')
+    eval_item_name = models.CharField(max_length=20, primary_key=True, verbose_name='评估项')
     eval_class_name = models.ForeignKey(Eval_class, on_delete=models.CASCADE, verbose_name='评估类')
 
     class Meta:
@@ -37,9 +37,9 @@ class Eval_item(models.Model):
 
 class Eval_indicator(models.Model):
     eval_indicator_id = models.PositiveIntegerField(verbose_name='序号', unique=True)
-    eval_class_name = models.ForeignKey(Eval_class, on_delete=models.CASCADE, verbose_name='评估类名')
-    eval_item_name = models.ForeignKey(Eval_item, on_delete=models.CASCADE, verbose_name='评估项名')
-    eval_indicator_name = models.TextField(primary_key= True, max_length=200, unique=True, verbose_name='评估指标名')
+    eval_class_name = models.ForeignKey(Eval_class, on_delete=models.CASCADE, verbose_name='评估类')
+    eval_item_name = models.ForeignKey(Eval_item, on_delete=models.CASCADE, verbose_name='评估项')
+    eval_indicator_name = models.TextField(primary_key= True, max_length=200, unique=True, verbose_name='评估指标')
     weight =  models.PositiveIntegerField(verbose_name='权重值')
     
     class Meta:

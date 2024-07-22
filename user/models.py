@@ -1,9 +1,8 @@
 from django.db import models
-# from django.utils.translation import gettext_lazy as _
 
 class User(models.Model):
-    username = models.CharField(max_length=20, primary_key= True, verbose_name='用户名')
-    password = models.CharField(max_length=20, verbose_name='密码')
+    username = models.CharField(max_length=20,primary_key=True, verbose_name="用户名")
+    password = models.CharField(max_length=20, verbose_name="用户名")
 
     class Meta:
         verbose_name = "用户管理"
@@ -48,4 +47,43 @@ class Eval_indicator(models.Model):
     def __str__(self):
         return self.eval_indicator_name
 
+
+class Project(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE, verbose_name = '用户')
+    project_name = models.CharField(max_length=50, primary_key= True, verbose_name = "项目名")
+
+    class Meta:
+        verbose_name = "项目管理"
+        verbose_name_plural = verbose_name
+    
+    def __str__(self):
+        return self.project_name
+
+
+class Eval_result(models.Model):
+    project_name = models.ForeignKey(Project,on_delete=models.CASCADE, verbose_name= '项目名')
+    eval_indicator_name = models.ForeignKey(Eval_indicator, on_delete = models.CASCADE, verbose_name= '评估项')
+    FIT = '符合'
+    PART_FIT = '部分符合'
+    UNFIT = '不符合'
+    UNRELATED = '不适用'
+    EVAL_RESULT_CHOICES = (
+        (FIT, '符合'),
+        (PART_FIT, '部分符合'),
+        (UNFIT, '不符合'),
+        (UNRELATED, '不适用'),
+    )
+    eval_result = models.CharField(
+        max_length=5,
+        choices=EVAL_RESULT_CHOICES,
+        default=UNRELATED,
+        verbose_name= '评估结果'
+    )
+
+    class Meta:
+        verbose_name = "评估结果管理"
+        verbose_name_plural = verbose_name
+    
+    def __str__(self):
+        return self.project_name
 # Create your models here.

@@ -35,4 +35,7 @@ class Eval_indicator_Admin(admin.ModelAdmin):
     list_filter = ('eval_item_name',)  # 筛选 
     
 admin.site.register(Eval_indicator, Eval_indicator_Admin)
+
+admin.site.register(Project)
+admin.site.register(Eval_result)
 # Register your models here.

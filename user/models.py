@@ -37,7 +37,6 @@ class Eval_item(models.Model):
 
 class Eval_indicator(models.Model):
     eval_indicator_id = models.PositiveIntegerField(verbose_name='序号', unique=True)
-    eval_class_name = models.ForeignKey(Eval_class, on_delete=models.CASCADE, verbose_name='评估类')
     eval_item_name = models.ForeignKey(Eval_item, on_delete=models.CASCADE, verbose_name='评估项')
     eval_indicator_name = models.TextField(primary_key= True, max_length=200, unique=True, verbose_name='评估指标')
     weight =  models.PositiveIntegerField(verbose_name='权重值')

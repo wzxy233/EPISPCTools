@@ -30,9 +30,9 @@ admin.site.register(Eval_item,Eval_item_Admin)
 
 # 评估指标管理
 class Eval_indicator_Admin(admin.ModelAdmin):
-    list_display = ('eval_indicator_id', 'eval_class_name', 'eval_item_name', 'eval_indicator_name', 'weight')
+    list_display = ('eval_indicator_id', 'eval_item_name', 'eval_indicator_name', 'weight')
     list_per_page = 20
-    list_filter = ('eval_class_name',)  # 筛选 
+    list_filter = ('eval_item_name',)  # 筛选 
     
 admin.site.register(Eval_indicator, Eval_indicator_Admin)
 # Register your models here.

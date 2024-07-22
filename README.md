@@ -33,3 +33,8 @@ python manage.py migrate
 ```python manage.py runserver
 python manage.py runserver
 ```
+
+## 进度
+
+- 完成管理系统搭建
+- 完成指标体系导入

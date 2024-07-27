@@ -10,6 +10,7 @@ admin.site.index_title = "指标体系与用户管理"
 #用户管理
 class User_Admin(admin.ModelAdmin):
     list_display = ('username', 'password')
+    admin_order = 1
 
 admin.site.register(User,User_Admin)
 
@@ -17,6 +18,7 @@ admin.site.register(User,User_Admin)
 class Eval_class_Admin(admin.ModelAdmin):
     list_display = ('eval_class_id', 'eval_class_name')
     list_per_page = 20
+    admin_order = 2
     
 admin.site.register(Eval_class, Eval_class_Admin)
 
@@ -25,6 +27,7 @@ class Eval_item_Admin(admin.ModelAdmin):
     list_display = ('eval_item_id', 'eval_class_name', 'eval_item_name')
     list_filter = ('eval_class_name',)  # 筛选
     list_per_page = 20
+    admin_order = 3 
 
 admin.site.register(Eval_item,Eval_item_Admin)
 
@@ -33,6 +36,7 @@ class Eval_indicator_Admin(admin.ModelAdmin):
     list_display = ('eval_indicator_id', 'eval_item_name', 'eval_indicator_name', 'weight')
     list_per_page = 20
     list_filter = ('eval_item_name',)  # 筛选 
+    admin_order =4 
     
 admin.site.register(Eval_indicator, Eval_indicator_Admin)
 

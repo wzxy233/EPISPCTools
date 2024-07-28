@@ -1,9 +1,11 @@
 <template>
+<!--
   <div id="nav">
     <router-link to="/">Home</router-link> |
     <router-link to="/Login">登录</router-link>
     <el-button @click="this.$router.push('/about')">跳转</el-button>
   </div>
+-->
   <router-view/>
 </template>
  

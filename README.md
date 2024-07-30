@@ -34,6 +34,17 @@ python manage.py migrate
 python manage.py runserver
 ```
 
+### vue 安装
+请阅读vue官方文档 https://cn.vuejs.org/guide/introduction.html 安装Node.js，学习vue的项目页面的搭建方式和与django后端交互方式
+
+### vue项目本地运行
+```
+npm run serve
+```
+
+### element-plus前端页面搭建
+请阅读element-plus官方文档https://element-plus.org/zh-CN/component/overview.html 学习组建使用方法，可以通过https://element-plus.run/ 线上平台进行页面搭建再迁移到项目中
+
 ## 进度
 
 - 完成管理系统搭建

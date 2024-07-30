@@ -36,6 +36,10 @@ python manage.py runserver
 
 ### vue 安装
 请阅读vue官方文档 https://cn.vuejs.org/guide/introduction.html 安装Node.js，学习vue的项目页面的搭建方式和与django后端交互方式
+```
+npm install @vue/cli
+```
+
 
 ### vue项目本地运行
 ```

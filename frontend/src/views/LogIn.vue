@@ -33,7 +33,7 @@
             <input maxlength="16" placeholder="   Password" type="password">
           </label>
         </div>
-        <div class="enterBut">
+        <div class="enterBut" @click="submit">
             <span>
                 登录
             </span>
@@ -78,6 +78,21 @@ export default {
       starsCount,
     };
   },
+
+  data() {
+        return {
+            username: "",
+            password: ""
+        }
+    },
+    methods: {
+        submit() {
+            this.$axios.post('/userapi/login/', {"username": this.username, "password": this.password})
+            .then((response) => {
+                alert(response.data.msg)
+            })
+        }
+    }
 };
 </script>
 

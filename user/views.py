@@ -41,15 +41,5 @@ class ApiUser(viewsets.ViewSet):
             result['code'] = -1
             return Response(result)
     
-    @action(methods=['post'], detail=False)
-    def register(self, request):
-        username = request.data['username']
-        password = request.data['password']
-        User.objects.create(username=username, password=password)
-        result = {
-            "code": 200,
-            "msg": "注册成功",
-            "body": ""
-        }
-        return Response(result)
+   
 # Create your views here.

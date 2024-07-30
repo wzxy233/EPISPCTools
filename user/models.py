@@ -1,15 +1,16 @@
 from django.db import models
+from django.contrib.auth.models import User, Group
 
-class User(models.Model):
-    username = models.CharField(max_length=20,primary_key=True, verbose_name="用户名")
-    password = models.CharField(max_length=20, verbose_name="用户名")
+# class User(models.Model):
+#     username = models.CharField(max_length=20,primary_key=True, verbose_name="用户名")
+#     password = models.CharField(max_length=20, verbose_name="密码")
 
-    class Meta:
-        verbose_name = "用户管理"
-        verbose_name_plural = verbose_name
+#     class Meta:
+#         verbose_name = "用户管理"
+#         verbose_name_plural = verbose_name
     
-    def __str__(self):
-        return self.username
+#     def __str__(self):
+#         return self.username
 
 class Eval_class(models.Model):
     eval_class_id = models.PositiveIntegerField(verbose_name='序号', unique=True)
@@ -51,6 +52,8 @@ class Eval_indicator(models.Model):
 class Project(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE, verbose_name = '用户')
     project_name = models.CharField(max_length=50, primary_key= True, verbose_name = "项目名")
+    create_time = models.DateTimeField(auto_now_add = True , verbose_name = "创建时间")
+    modify_time = models.DateTimeField(auto_now = True , verbose_name = "修改时间")
 
     class Meta:
         verbose_name = "项目管理"
@@ -74,7 +77,7 @@ class Eval_result(models.Model):
         (UNRELATED, '不适用'),
     )
     eval_result = models.CharField(
-        max_length=5,
+        max_length=10,
         choices=EVAL_RESULT_CHOICES,
         default=UNRELATED,
         verbose_name= '评估结果'
@@ -85,5 +88,5 @@ class Eval_result(models.Model):
         verbose_name_plural = verbose_name
     
     def __str__(self):
-        return self.project_name
+        return "评估结果"
 # Create your models here.

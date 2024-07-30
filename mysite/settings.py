@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "simpleui",
     "polls.apps.PollsConfig",
     "user.apps.UserConfig",
     "django.contrib.admin",
@@ -138,7 +139,7 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:8080',
-	'http://localhost:8082'
+	'http://localhost:8000'
 )
 
 CORS_ALLOW_METHODS = (

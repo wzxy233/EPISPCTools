@@ -43,6 +43,8 @@ npm install @vue/cli
 
 ### vue项目本地运行
 ```
+npm install -g cnpm # 换用淘宝源cnpm
+cnpm install
 npm run serve
 ```
 
